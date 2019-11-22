@@ -15,10 +15,24 @@ export default class List {
     <div class="col-12 col-md-4">
     <br />
     <p>${this.name}</p>
-    <p>Add Item</p>
-    <input type="text" class="form-control" name="list" id="list" placeholder="Item...">
+    ${this.drawItems()}
+    <br />
+    <p>Add Task</p>
+    <form onsubmit="app.listController.addItem(event, '${this.id}')">
+    <input type="text" class="form-control" name="item" id="item" placeholder="Item name...">
+    <span id="items"></span>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </div>
     `
+  }
+
+  drawItems() {
+    let template = ''
+    this.items.forEach(item => {
+      template += `<p>${item}</p>`
+    })
+    return template
   }
 
   // drawItems() {

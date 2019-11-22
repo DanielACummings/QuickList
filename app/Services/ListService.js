@@ -2,6 +2,13 @@ import List from "../Models/List.js";
 import _store from "../store.js"
 //Public
 class ListService {
+  addItem(newItem, listId) {
+    let foundList = _store.State.lists.find(lists => lists.id == listId)
+    foundList.items.push(newItem)
+    _store.saveState()
+    console.log('additemservice');
+    drawItems()
+  }
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
   //what methods will you need to do when this class is first 'constructed'?

@@ -1,14 +1,23 @@
 import ListService from "../Services/ListService.js";
 import _store from "../store.js"
 
+
 //TODO Don't forget to render to the screen after every data change.
+
+//private
 function _drawLists() {
   let template = ''
-
-
   let lists = _store.Lists
   lists.forEach(lists => template += lists.template)
   document.querySelector("#lists").innerHTML = template
+}
+function _drawItems() {
+  let template = ''
+  let items = _store.Lists.items
+    .forEach(item => {
+      template += `<p>${item}</p>`
+    })
+  return template
 }
 
 //Public
@@ -23,7 +32,6 @@ export default class ListController {
   addList(event) {
     event.preventDefault()
     let formData = event.target
-    debugger
     let newList = {
       name: formData.listName.value,
       items: []
@@ -32,5 +40,15 @@ export default class ListController {
     console.log('listcontroller');
     ListService.addList(newList)
     _drawLists()
+  }
+
+  addItem(event, listId) {
+    event.preventDefault()
+    let formData = event.target
+    let newItem = formData.item.value
+    formData.reset()
+    console.log('additemcontroller')
+    ListService.addItem(newItem, listId)
+    _drawItems()
   }
 }
