@@ -4,7 +4,9 @@ import _store from "../store.js"
 //TODO Don't forget to render to the screen after every data change.
 function _drawLists() {
   let template = ''
-  let lists = _store.State.lists
+
+
+  let lists = _store.Lists
   lists.forEach(lists => template += lists.template)
   document.querySelector("#lists").innerHTML = template
 }
@@ -21,8 +23,9 @@ export default class ListController {
   addList(event) {
     event.preventDefault()
     let formData = event.target
+    debugger
     let newList = {
-      name: formData,
+      name: formData.listName.value,
       items: []
     }
     formData.reset()

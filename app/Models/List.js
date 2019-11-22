@@ -12,7 +12,12 @@ export default class List {
   //For starting out, your tasks may be strings alone, but later you may wish to turn them into full objects, that will be up to you
   get template() {
     return /*html*/ `
-      
+    <div class="col-12 col-md-4">
+    <br />
+    <p>${this.name}</p>
+    <p>Add Item</p>
+    <input type="text" class="form-control" name="list" id="list" placeholder="Item...">
+  </div>
     `
   }
 
