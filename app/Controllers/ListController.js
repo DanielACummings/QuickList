@@ -11,21 +11,12 @@ function _drawLists() {
   lists.forEach(lists => template += lists.template)
   document.querySelector("#lists").innerHTML = template
 }
-function _drawItems() {
-  let template = ''
-  let items = _store.Lists.items
-    .forEach(item => {
-      template += `<p>${item}</p>`
-    })
-  return template
-}
 
 //Public
 export default class ListController {
   constructor() {
     //NOTE: After the store loads, we can automatically call to draw the lists.
     _drawLists();
-
   }
 
   //TODO: Your app will need the ability to create, and delete both lists and listItems
@@ -49,6 +40,6 @@ export default class ListController {
     formData.reset()
     console.log('additemcontroller')
     ListService.addItem(newItem, listId)
-    _drawItems()
+    _drawLists()
   }
 }

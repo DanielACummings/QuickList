@@ -34,10 +34,4 @@ export default class List {
     })
     return template
   }
-
-  // drawItems() {
-  //   let template = ''
-  //   this.items.forEach(items => template += items.template);
-  //   return template
-  // }
 }

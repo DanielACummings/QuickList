@@ -7,7 +7,6 @@ class ListService {
     foundList.items.push(newItem)
     _store.saveState()
     console.log('additemservice');
-    drawItems()
   }
   //TODO  Here is where we handle all of our business logic,
   //given the information you need in the controller,
