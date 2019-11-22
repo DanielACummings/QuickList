@@ -32,7 +32,10 @@ export default class ListController {
     ListService.addList(newList)
     _drawLists()
   }
-
+  delList(id) {
+    ListService.delList(id)
+    _drawLists()
+  }
   addItem(event, listId) {
     event.preventDefault()
     let formData = event.target

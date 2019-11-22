@@ -19,9 +19,11 @@ export default class List {
     <br />
     <p>Add Task</p>
     <form onsubmit="app.listController.addItem(event, '${this.id}')">
-    <input type="text" class="form-control" name="item" id="item" placeholder="Item name...">
+    <input type="text" class="form-control" name="item" id="item" placeholder="Item name..." required>
     <span id="items"></span>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <button onclick="app.
+    listController.delList('${this.id}')" type="delete" class="btn btn-danger">Delete</button>
     </form>
   </div>
     `

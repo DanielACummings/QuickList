@@ -1,5 +1,6 @@
 import List from "../Models/List.js";
 import _store from "../store.js"
+import store from "../store.js";
 //Public
 class ListService {
   addItem(newItem, listId) {
@@ -17,6 +18,11 @@ class ListService {
     _store.State.lists.push(list)
     _store.saveState()
     console.log('listservice')
+  }
+  delList(id) {
+    let listToDel = _store.State.lists.findIndex(list => list.id == id)
+    _store.State.lists.splice(listToDel, 1)
+    _store.saveState()
   }
 }
 
