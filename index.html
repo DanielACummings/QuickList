@@ -2,18 +2,45 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Listmon</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <title>TaskMaster</title>
 </head>
 
 <body>
-    <!-- Test -->
-
-    <script src="app/main.js" type="module"></script>
+  <div class="container-fluid">
+    <header>
+      <div class="row">
+        <div class="col-12">
+          <form onsubmit="app.listController.addList(event)">
+            <div class="form-group">
+              <label for="name">Add List</label>
+              <input type="text" class="form-control" id="listName" aria-describedby="listName"
+                placeholder="Enter List Name...">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main>
+    <div class="container">
+      <div class="row form-group justify-content-center" id="lists">
+        <div class="col-12 col-md-4">
+          <p>Add Item</p>
+          <input type="text" class="form-control" name="item" id="item" placeholder="Item...">
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container-fluid"></div>
+  </footer>
+  <script src="app/main.js" type="module"></script>
 </body>
 
 </html>
