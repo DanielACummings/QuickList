@@ -14,9 +14,8 @@ export default class List {
     return /*html*/ `
     <div class="col-12 col-md-4">
     <br />
-    <p>${this.name}</p>
+    <b><p>${this.name}</p></b>
     ${this.drawItems()}
-    <br />
     <p>Add Task</p>
     <form onsubmit="app.listController.addItem(event, '${this.id}')">
     <input type="text" class="form-control" name="item" id="item" placeholder="Item name..." required>
@@ -32,7 +31,10 @@ export default class List {
   drawItems() {
     let template = ''
     this.items.forEach(item => {
-      template += `<p>${item}</p>`
+      template += /*html*/`
+      <p>${item}
+      <button onclick="app.
+      listController.delItem('${this.id}')"type="delete" class="btn btn-danger">Delete</button></p>`
     })
     return template
   }

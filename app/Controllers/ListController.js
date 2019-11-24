@@ -39,10 +39,17 @@ export default class ListController {
   addItem(event, listId) {
     event.preventDefault()
     let formData = event.target
-    let newItem = formData.item.value
+    let newItem = {
+      name: formData.listName
+    }
     formData.reset()
     console.log('additemcontroller')
     ListService.addItem(newItem, listId)
+    _drawLists()
+  }
+  delItem(listId, itemId) {
+    console.log('delItemController')
+    ListService.delItem(listId, itemId)
     _drawLists()
   }
 }
