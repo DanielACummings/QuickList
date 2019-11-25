@@ -3,19 +3,16 @@ import _store from "../store.js"
 import Item from "../Models/Item.js"
 //Public
 class ListService {
-  addItem(newItem) { //why is listId never called? It's used below
+  addItem(newItem) {
     let item = new Item(newItem)
     let foundList = _store.State.lists.find(lists => lists.id == item.listId)
-    foundList.items.push(item) //push(item.newItem) ?
+    foundList.items.push(item)
     _store.saveState()
-    console.log('additemservice');
   }
-  delItem(listId, itemId) { //listID never gets defined in item model constructor
+  delItem(listId, itemId) {
     let close = confirm("Are you sure you\nwant to delete this?")
     if (close == true) {
-      //listToRemItemsFrom is undefined 
-      let listToRemItemFrom = _store.State.lists.find(list => list.id == listId) //use find() or findIndex()? After switching to find(), listToRemItemFrom is no longer 'number' type--that got rid of an intellisense error.
-      // use []?
+      let listToRemItemFrom = _store.State.lists.find(list => list.id == listId)
       let itemToRem = listToRemItemFrom.items.findIndex(item => item.id == itemId)
       listToRemItemFrom.items.splice(itemToRem, 1)
       _store.saveState()
@@ -25,7 +22,6 @@ class ListService {
     let list = new List(newList)
     _store.State.lists.push(list)
     _store.saveState()
-    console.log('listservice')
   }
   delList(id) {
     let close = confirm("Are you sure you\nwant to delete this?")

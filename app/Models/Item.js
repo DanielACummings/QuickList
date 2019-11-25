@@ -1,11 +1,11 @@
 import { generateId } from "../utils.js";
 export default class Item {
-  constructor({ id = generateId(), listId /* =...?*/, name }) {//generateId for listId? Wouldn't that conflict with existing ID of the list this item gets added to?
+  constructor({ id = generateId(), listId, name }) {
     this.id = id;
-    this.listId = listId; //never gets defined
+    this.listId = listId;
     this.name = name;
   }
-  get Template() { //listID doesn't get defined when template is drawn even tho this.id does
+  get Template() {
     return /*html*/ `
       <p>${this.name}
       <button onclick="app.

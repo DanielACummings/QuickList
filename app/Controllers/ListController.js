@@ -1,9 +1,6 @@
 import ListService from "../Services/ListService.js";
 import _store from "../store.js"
 
-
-//TODO Don't forget to render to the screen after every data change.
-
 //private
 function _drawLists() {
   let template = ''
@@ -25,7 +22,6 @@ export default class ListController {
       items: []
     }
     formData.reset()
-    console.log('listcontroller');
     ListService.addList(newList)
     _drawLists()
   }
@@ -41,12 +37,10 @@ export default class ListController {
       listId: listId
     }
     formData.reset()
-    console.log('additemcontroller')
     ListService.addItem(newItem)
     _drawLists()
   }
-  delItem(listId, itemId) {//listId undefined. Why?
-    console.log('delItemController')
+  delItem(listId, itemId) {
     ListService.delItem(listId, itemId)
     _drawLists()
   }
