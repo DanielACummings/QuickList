@@ -1,21 +1,14 @@
 import { generateId } from "../utils.js";
 export default class Item {
-  constructor({ id = generateId(), listId, name }) {
+  constructor({ id = generateId(), listId /* =...?*/, name }) {//generateId for listId? Wouldn't that conflict with existing ID of the list this item gets added to?
     this.id = id;
-    this.listId = listId;
+    this.listId = listId; //never gets defined
     this.name = name;
-    console.log('ID: ' + this.id);
-    console.log('LISTID: ' + listId);
-    console.log('NAME: ' + name);
   }
-  get Template() {
+  get Template() { //listID doesn't get defined when template is drawn even tho this.id does
     return /*html*/ `
       <p>${this.name}
       <button onclick="app.
-      listController.delItem('${this.id}')"type="delete" class="btn btn-danger">Delete</button></p>`
+      listController.delItem('${this.listId}', '${this.id}')"type="delete" class="btn btn-danger">Delete</button></p>`
   }
 }
-
-// this.listId = undefined.
-// look at values of html
-//why does listId work in one place but not other?  
