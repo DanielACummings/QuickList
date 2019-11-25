@@ -37,11 +37,12 @@ export default class ListController {
     event.preventDefault()
     let formData = event.target
     let newItem = {
-      name: formData.item.value
+      name: formData.item.value,
+      listId: listId
     }
     formData.reset()
     console.log('additemcontroller')
-    ListService.addItem(newItem, listId)
+    ListService.addItem(newItem)
     _drawLists()
   }
   delItem(listId, itemId) {//listId undefined. Why?

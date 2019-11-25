@@ -3,10 +3,11 @@ import _store from "../store.js"
 import Item from "../Models/Item.js"
 //Public
 class ListService {
-  addItem(newItem, listId) { //why is listId never called? It's used below
+  addItem(newItem) { //why is listId never called? It's used below
     let item = new Item(newItem)
     let foundList = _store.State.lists.find(lists => lists.id == item.listId)
-    foundList.items.push(newItem, listId) //push(item.newItem) ?
+    debugger
+    foundList.items.push(item) //push(item.newItem) ?
     _store.saveState()
     console.log('additemservice');
   }
