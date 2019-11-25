@@ -11,15 +11,16 @@ class ListService {
     _store.saveState()
     console.log('additemservice');
   }
-  delItem(listId, itemId) {
-    let close = confirm("Are you sure you\nwant to delete this?")
-    if (close == true) {
-      let listToRemItemFrom = _store.State.lists.findIndex(list => list.id == listId)
-      let itemIndex = listToRemItemFrom.items.findIndex(item => items.id == itemId)
-      listToRemItemFrom.items.splice(itemIndex, 1)
-      _store.saveState()
-    }
-  }
+  // delItem(listId, itemId) {
+  //   let close = confirm("Are you sure you\nwant to delete this?")
+  //   if (close == true) {
+  //     let listToRemItemFrom = _store.State.lists.findIndex(list => list.id == listId)
+  //     let itemToRem = listToRemItemFrom.__.findIndex(item => item.id == itemId)
+
+  //     listToRemItemFrom.??.splice(itemToRem, 1)
+  //     _store.saveState()
+  //   }
+  // }
   //NOTE You will need this code to persist your data into local storage, be sure to call the store method to save after each change
   addList(newList) {
     let list = new List(newList)

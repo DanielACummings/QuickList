@@ -18,7 +18,6 @@ export default class ListController {
     //NOTE: After the store loads, we can automatically call to draw the lists.
     _drawLists();
   }
-
   //TODO: Your app will need the ability to create, and delete both lists and listItems
   addList(event) {
     event.preventDefault()
@@ -40,16 +39,17 @@ export default class ListController {
     event.preventDefault()
     let formData = event.target
     let newItem = {
-      name: formData.listName
+      name: formData.item.value
     }
     formData.reset()
     console.log('additemcontroller')
     ListService.addItem(newItem, listId)
+    //ListService.addItem(formData.listName, listId)
     _drawLists()
   }
-  delItem(listId, itemId) {
-    console.log('delItemController')
-    ListService.delItem(listId, itemId)
-    _drawLists()
-  }
+  // delItem(listId, itemId) {
+  //   console.log('delItemController')
+  //   ListService.delItem(listId, itemId)
+  //   _drawLists()
+  // }
 }

@@ -1,11 +1,12 @@
 import { generateId } from "../utils.js";
+import Item from "./Item.js"
 
 export default class List {
   constructor({ id = generateId(), name, items }) {
     //TODO Your constructor takes in a data object that should have the properties you need to create your list here is a freebie, it will set the id its provided, or if that is undefined it will create a new one (this is an alternative to object destructuring)
     this.id = id;
     this.name = name;
-    this.items = items
+    this.items = items.map(i => new Item(i));
     console.log('listmodel');
   }
   //Be sure to add the methods needed to create the view template for this model
@@ -27,14 +28,10 @@ export default class List {
   </div>
     `
   }
-
   drawItems() {
     let template = ''
     this.items.forEach(item => {
-      template += /*html*/`
-      <p>${item}
-      <button onclick="app.
-      listController.delItem('${this.id}')"type="delete" class="btn btn-danger">Delete</button></p>`
+      template += item.Template
     })
     return template
   }
