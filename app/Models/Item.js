@@ -7,8 +7,7 @@ export default class Item {
   }
   get Template() {
     return /*html*/ `
-      <p>${this.name}
-      <button onclick="app.
-      listController.delItem('${this.listId}', '${this.id}')"type="delete" class="btn btn-danger">Delete</button></p>`
+      <p><button onclick="app.
+      listController.delItem('${this.listId}', '${this.id}')"type="delete" class="btn btn-danger btn-sm">Delete</button>${this.name}</p>`
   }
 }
