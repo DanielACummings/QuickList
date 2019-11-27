@@ -9,18 +9,16 @@ export default class List {
   }
   get template() {
     return /*html*/ `
-    <div class="col-12 col-md-4">
-    <br />
-    <b><p>${this.name}</p></b>
-    ${this.drawItems()}
-    <p>Add Task</p>
+    <div class="col-12 col-md-3 p-2 m-2 border rounded">
+    <b><p class="text-center">${this.name}</p></b>
     <form onsubmit="app.listController.addItem(event, '${this.id}')">
-    <input type="text" class="form-control" name="item" id="item" placeholder="Item name..." required>
-    <span id="items"></span>
-    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+    <input type="text" class="form-control" name="item" id="item" placeholder="Add list item here..." required>
+    <button type="submit" class="btn btn-info btn-sm">Submit</button>
     <button onclick="app.
-    listController.delList('${this.id}')" type="delete" class="btn btn-danger btn-sm">Delete</button>
+    listController.delList('${this.id}')" type="delete" class="btn btn-dark btn-sm">Delete List</button>
     </form>
+    <br />
+    ${this.drawItems()}
   </div>
     `
   }
