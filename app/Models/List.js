@@ -12,7 +12,7 @@ export default class List {
   <div class="col-5 col-md-3 p-1 m-1 border rounded">
     <b><p class="text-center">${this.name}</p></b>
     <form onsubmit="app.listController.addItem(event, '${this.id}')">
-      <input type="text" class="form-control" name="item" id="item" placeholder="Item Name(s)..." required>
+      <textarea type="text" class="form-control" name="item" id="item" placeholder="Item/items to add" required></textarea>
       <button type="submit" class="btn btn-info btn-sm">Submit</button>
       <button onclick="app.
       listController.delList('${this.id}')" type="delete" class="btn btn-dark btn-sm">Delete List</button>

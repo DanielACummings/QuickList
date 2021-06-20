@@ -24,11 +24,14 @@
           <form onsubmit="app.listController.addList(event)">
             <div class="form-group">
               <label for="name"><b>Add List</b></label>
-              <input type="text" class="form-control" id="listName" aria-describedby="listName"
-                placeholder="List Name..." required>
+              <input type="text" class="form-control" id="listName" aria-describedby="listName" placeholder="List name"
+                required>
             </div>
             <button type="submit" class="btn btn-info">Submit</button>
           </form>
+        </div>
+        <div class="col-6 col-md-3">
+          <p>To enter multiple items in a list at once, separate them by commas or enters</p>
         </div>
       </div>
       <div class="row form-group justify-content-center" id="lists">

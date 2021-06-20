@@ -34,7 +34,8 @@ export default class ListController {
     let formData = event.target
     let userEntry = formData.item.value
     formData.reset()
-    let newItemList = userEntry.split(',')
+    // '/\r\n|\n\r|\n|\r/' is RegEx for the newline characters on all major operating systems
+    let newItemList = userEntry.trim().split(',').join('`').split(/\r\n|\n\r|\n|\r/).join('`').split('`')
     for (let i = 0; i < newItemList.length; i++) {
       let newItem = {
         name: newItemList[i].trim(),
